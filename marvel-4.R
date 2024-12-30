@@ -158,7 +158,6 @@ correlation_matrix <- cor(marvel_numeric, use = "pairwise.complete.obs", method 
 # Melt the correlation matrix for heatmap
 melted_corr <- melt(correlation_matrix)
 
-# Create a heatmap
 ggplot(melted_corr, aes(x = Var1, y = Var2, fill = value)) +
   geom_tile() +
   scale_fill_gradient2(low = "blue", mid = "white", high = "red", midpoint = 0) +
@@ -183,8 +182,6 @@ marvel <- marvel %>%
 wilcox_test <- wilcox.test(Appearances ~ Universe_numeric, data = marvel, exact = FALSE)
 print("Wilcoxon/Mann-Whitney U Test Result:")
 print(wilcox_test)
-
-# Visualizing the data to examine the distribution
 ggplot(marvel, aes(x = Universe, y = Appearances, fill = Universe)) +
   geom_boxplot(outlier.color = "red", outlier.size = 2) +
   labs(
