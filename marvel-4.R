@@ -153,7 +153,6 @@ marvel_numeric <- marvel %>%
   mutate(Universe_numeric = as.numeric(factor(Universe))) %>%  # Encode Universe
   select_if(is.numeric)
 
-# Calculate correlation matrix
 correlation_matrix <- cor(marvel_numeric, use = "pairwise.complete.obs", method = "spearman")
 
 # Melt the correlation matrix for heatmap
